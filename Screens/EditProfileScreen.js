@@ -156,7 +156,7 @@ const EditProfileScreen = ({navigation}) => {
         }}
       >
         {/* Home Tab */}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
           <Ionicons
             style={{ marginHorizontal: 50 }}
             name="home"

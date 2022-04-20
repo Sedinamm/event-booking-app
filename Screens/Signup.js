@@ -4,18 +4,18 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 
 export default function Signup({ navigation }) {
   return (
-    <View style={{ flex: 10, backgroundColor: "violet" }}>
-      <View style={{ flex: 3, backgroundColor: "blue" }}>
-        <Image
+    <View style={{ flex: 10, backgroundColor: "white" }}>
+      <View style={{ flex: 3, backgroundColor: "white" }}>
+        {/* <Image
           style={{ bottom: -1, right: 20, width: 410, height: 350 }}
           source={require("../assets/Images/55.jpg")}
-        />
+        /> */}
       </View>
 
       <View
         style={{
           flex: 5,
-          backgroundColor: "blue",
+          backgroundColor: "black",
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
         }}
