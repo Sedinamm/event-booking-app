@@ -50,17 +50,17 @@ const ProfileScreen = ({ navigation }) => {
       <View style={styles.userInfoSection}>
         <View style={styles.row}>
           <Icon name="map-marker-radius" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>Accra, Ghana</Text>
+          <Text style={{ color: "#fff", marginLeft: 20 }}>Accra, Ghana</Text>
         </View>
         <View style={styles.row}>
           <Icon name="phone" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>
+          <Text style={{ color: "#fff", marginLeft: 20 }}>
             +233203336468
           </Text>
         </View>
         <View style={styles.row}>
           <Icon name="email" color="#777777" size={20} />
-          <Text style={{ color: "#777777", marginLeft: 20 }}>
+          <Text style={{ color: "#fff", marginLeft: 20 }}>
             sedinam436@gmail.com
           </Text>
         </View>
@@ -131,49 +131,6 @@ const ProfileScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-
-      {/* Bottom Tab menu */}
-      <View
-        style={{
-          flex: 0.6,
-          backgroundColor: "#101010",
-          borderTopEndRadius: 20,
-          borderTopStartRadius: 20,
-          flexDirection: "row",
-          alignItems: "center",
-          top: 120,
-        }}
-      >
-        {/* Home Tab */}
-        <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-          <Ionicons
-            style={{ marginHorizontal: 50 }}
-            name="home"
-            size={30}
-            color="white"
-          />
-        </TouchableOpacity>
-
-        {/* Ticket Tab */}
-        <TouchableOpacity onPress={() => navigation.navigate("TicketScreen")}>
-          <Icon
-            style={{ marginHorizontal: 50 }}
-            name="credit-card"
-            size={30}
-            color="white"
-          />
-        </TouchableOpacity>
-
-        {/* Profile */}
-        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
-          <Ionicons
-            style={{ marginHorizontal: 50 }}
-            name="person-outline"
-            size={30}
-            color="white"
-          />
-        </TouchableOpacity>
-      </View>
       
     </SafeAreaView>
   );
@@ -184,6 +141,7 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "black",
   },
   userInfoSection: {
     paddingHorizontal: 30,
@@ -222,7 +180,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   menuItemText: {
-    color: "#777777",
+    color: "#fff",
     marginLeft: 20,
     fontSize: 16,
     lineHeight: 26,

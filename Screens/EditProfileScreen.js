@@ -45,7 +45,7 @@ const EditProfileScreen = ({navigation}) => {
         callbackNode={this.fall}
         enabledContentGestureInteraction={true}
         /> */}
-        <View style={{margin:20}}>
+        <View style={{margin:20, }}>
             <View style={{alignItems:"center"}}>
                 <TouchableOpacity onPress={() => {}}>
                     <View style={{
@@ -80,7 +80,7 @@ const EditProfileScreen = ({navigation}) => {
                 </TouchableOpacity>
 
                 {/* Text Area */}
-                <Text style={{marginTop:10, fontSize:18, fontWeight:"bold" , top:40}}>Gabriel Sedinam</Text>
+                <Text style={{marginTop:10, fontSize:18, fontWeight:"bold" , top:40, color:"white"}}>Gabriel Sedinam</Text>
             </View>
 
             <View style={[styles.action, {top:40}]}>
@@ -194,6 +194,7 @@ export default EditProfileScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: "#000",
     },
     commandButton: {
       padding: 15,
