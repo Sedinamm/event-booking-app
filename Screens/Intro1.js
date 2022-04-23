@@ -24,9 +24,10 @@ export default function Intro1({navigation}) {
           Buy Tickets At Ease
         </Text>
         <View style={{ position: "absolute", alignSelf: "center" }}>
-          <Text style={{  top: 200, color: "white" }}>
-            Be able to buy tickets at ease on your mobile phone
+          <Text style={{  top: 200, color: "white", fontWeight:"bold" }}>
+            Be able to buy tickets at ease on your
           </Text>
+          <Text style={{top: 207, color:"white", alignSelf:"center", fontWeight:"bold"}}>mobile phone</Text>
         </View>
 
         {/* Button */}

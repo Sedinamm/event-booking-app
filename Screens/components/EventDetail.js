@@ -89,7 +89,7 @@ const EventDetail = ({ route, navigation }) => {
             About
           </Text>
           <Text
-            style={{ color: "#fff", fontSize: 18, top: 20, color: "#383838" }}
+            style={{ color: "#fff", fontSize: 18, top: 20, color: "white" }}
           >
             {about}
           </Text>

@@ -1,13 +1,17 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import React, {useState} from "react";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { signUp } from "../actions/authActions";
 
-export default function Signup({navigation}) {
+export default function Signup({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={{ flex: 10, backgroundColor: "white" }}>
       <View style={{ flex: 3, backgroundColor: "white" }}>
         {/* <Image
-          style={{ bottom: -1, right: 20, height: 350, width: 410 }}
+          style={{ bottom: -1, right: 20, width: 410, height: 350 }}
           source={require("../assets/Images/55.jpg")}
         /> */}
       </View>
@@ -20,47 +24,34 @@ export default function Signup({navigation}) {
           borderTopRightRadius: 40,
         }}
       >
-        <View style={{ alignSelf: "left", top: 25, left: 20 }}>
+        <View style={{ width: "100%", padding: 16 }}>
           <Text
             style={{
               fontWeight: "bold",
               fontSize: 35,
               color:"white",
+              top:10,
             }}
           >
             Login
           </Text>
 
           {/* Email */}
-          <Text style={{ top: 40, fontWeight: "bold", fontSize: 15, color:"white", }}>
+          
+          <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
+          <Text style={{ fontWeight: "bold", fontSize: 15, color:"white", }}>
             Email
           </Text>
-          <View style={{ marginTop: 55, width: 340 }}>
-            <GooglePlacesAutocomplete
-              placeholder="Email"
-              styles={{
-                textInput: {
-                  backgroundColor: "#eee",
-                  borderRadius: 50,
-                },
-              }}
-            />
+            <TextInput onChangeText={(text) => setEmail(text)} value={email} keyboardType="email-address" placeholder="Email" style={{backgroundColor: "white", padding: 16, borderRadius: 50}} />
           </View>
 
           {/* Password */}
-          <Text style={{ top: 70, fontWeight: "bold", fontSize: 15, color:"white", }}>
+          
+          <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
+          <Text style={{  fontWeight: "bold", fontSize: 15, color:"white", }}>
             Password
           </Text>
-          <View style={{ marginTop: 85, width: 340 }}>
-            <GooglePlacesAutocomplete
-              placeholder="Password"
-              styles={{
-                textInput: {
-                  backgroundColor: "#eee",
-                  borderRadius: 50,
-                },
-              }}
-            />
+          <TextInput onChangeText={(text) => setPassword(text)} value={password} placeholder="Password" secureTextEntry style={{backgroundColor: "white", padding: 16, borderRadius: 50}} />
           </View>
 
           {/* Button */}
@@ -68,10 +59,13 @@ export default function Signup({navigation}) {
             style={{
               top: 80,
               alignItems: "center",
-              
             }}
           >
-            <TouchableOpacity onPress={()=>navigation.navigate("HomeScreen")}
+            <TouchableOpacity onPress={async ()=> {
+              // const res = await signUp(email, password);
+              // console.log(res);
+              navigation.navigate("Main")
+            }}
               style={{
                 backgroundColor: "white",
                 borderRadius: 30,
@@ -81,15 +75,15 @@ export default function Signup({navigation}) {
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontWeight: "bold", fontSize: 15 }}>Login</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 15, color:"black" }}>Login</Text>
             </TouchableOpacity>
           </View>
 
           {/* Text */}
-          <Text style={{ top: 100, alignSelf: "center", right: 20,color:"white", }}>
-            Don't have an account?
+          <Text style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}>
+            Already have an account?
           </Text>
-          <TouchableOpacity onPress={()=> navigation.navigate("Signup")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
             <Text
               style={{
                 top: 83,

@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
   const data = [
     {
       id: 1,
-      price: 10,
+      price: 100,
       Name: "Afrochella",
       rating: "Show",
       month: "Oct",
@@ -28,7 +28,7 @@ export default function HomeScreen({ navigation }) {
     },
     {
       id: 2,
-      price: 2005,
+      price: 40,
       Name: "Chalewote",
       rating: "Show",
       month: "Nov",
@@ -51,7 +51,7 @@ export default function HomeScreen({ navigation }) {
     },
     {
       id: 4,
-      price: 30,
+      price: 200,
       Name: "VGMA",
       rating: "Award Show",
       month: "Jan",
@@ -63,7 +63,7 @@ export default function HomeScreen({ navigation }) {
     },
     {
       id: 5,
-      price: 3000,
+      price: 50,
       Name: "Worship Night",
       rating: "Program",
       month: "Feb",
@@ -77,7 +77,7 @@ export default function HomeScreen({ navigation }) {
     {
       id: 6,
       price: 100,
-      Name: "Lorem Ipsum",
+      Name: "Art Show",
       rating: "Art Show",
       month: "Jan",
       day: "6",
@@ -90,65 +90,65 @@ export default function HomeScreen({ navigation }) {
     {
       id: 7,
       price: 200,
-      Name: "Cevin Sephora",
-      rating: "voted 11198498",
+      Name: "The Live Experience",
+      rating: "Live Performance",
       month: "Oct",
       day: "27",
       // date: "2020-01-01",
       image:
-        "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://www.okayafrica.com/media-library/performing-all-your-favorite-songs-from-me-on-19th-december-get-your-discounted-early-bird-tickets-via-https-tix-africa-gyakie-physical-tickets-out-in-a-bit-pic-twitter-com-uyknrot1rc.jpg?id=28235404&width=980",
       about:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: 8,
       price: 50,
-      Name: "Cevin Sephora",
-      rating: "voted 11198498",
+      Name: "Hung Over",
+      rating: "Live Performance",
       month: "Mar",
       day: "10",
       // date: "2020-01-01",
       image:
-        "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://cdn.stayhappening.com/events5/banners/357f6b070934c70675a3a77df95511b00c0a10d543bf157caa70feb43708ede7-rimg-w1200-h1500-gmir.jpg?v=1639974447",
       about:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: 9,
       price: 1000,
-      Name: "Cevin Sephora",
-      rating: "voted 11198498",
+      Name: "Fire crackers",
+      rating: "Show",
       month: "May",
       day: "1",
       // date: "2020-01-01",
       image:
-        "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1619611048223-fc8569ab767a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGZpcmUlMjBzaG93fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       about:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: 10,
       price: 2300,
-      Name: "Cevin Sephora",
-      rating: "voted 11198498",
+      Name: "Sexes Beach Festival",
+      rating: "Show",
       month: "Jul",
       day: "3",
       // date: "2020-01-01",
       image:
-        "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "https://core-cdn.egotickets.com/production/uploads/event/banner_photo/33043/f957d3cda92c1601.png",
       about:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
     {
       id: 11,
       price: 205,
-      Name: "Cevin Sephora",
-      rating: "voted 11198498",
+      Name: "We Outside",
+      rating: "Party & Concert",
       month: "Aug",
       day: "7",
       // date: "2020-01-01",
       image:
-        "https://images.unsplash.com/photo-1486591978090-58e619d37fe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "https://core-cdn.egotickets.com/production/uploads/event/banner_photo/33672/bdc5f180f62c0c0a.jpeg",
       about:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
@@ -218,7 +218,7 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
           )}
         />
-      </View>     
+      </View>
     </View>
   );
 }

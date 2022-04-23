@@ -21,13 +21,9 @@ export default function Intro1({ navigation }) {
         <Text
           style={{ fontSize: 30, fontWeight: "bold", color: "white", top: 150 }}
         >
-          Travel to All 16 Regions
+            Pay for your tickets at the          
         </Text>
-        <View style={{ position: "absolute", alignSelf: "center" }}>
-          <Text style={{ fontWeight: "bold", top: 200, color: "white" }}>
-            Visit over 30+ tourists sites in the country
-          </Text>
-        </View>
+        <Text style={{alignSelf:"center", top: 150, fontSize:30, fontWeight:"bold", color:"white"}}>comfort of your home</Text>
 
         {/* Button */}
         <View

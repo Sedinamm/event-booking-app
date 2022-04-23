@@ -144,7 +144,7 @@ const EditProfileScreen = ({navigation}) => {
                 </TouchableOpacity>
         </View>
         {/* Bottom tab navigation */}
-      <View
+      {/* <View
         style={{
           flex: 0.3,
           backgroundColor: "#101010",
@@ -154,38 +154,38 @@ const EditProfileScreen = ({navigation}) => {
           alignItems: "center",
           top: 220,
         }}
-      >
+      > */}
         {/* Home Tab */}
-        <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-          <Ionicons
+        {/* <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+          {/* <Ionicons
             style={{ marginHorizontal: 50 }}
             name="home"
             size={30}
             color="white"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Ticket Tab */}
-        <TouchableOpacity onPress={() => navigation.navigate("TicketScreen")}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("TicketScreen")}>
           <Icon
             style={{ marginHorizontal: 50 }}
             name="credit-card"
             color="white"
             size={30}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Profile */}
-        <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("ProfileScreen")}>
           <Ionicons
             style={{ marginHorizontal: 50 }}
             name="person-outline"
             size={30}
             color="white"
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
-    </View>
+    // </View>
   );
 };
 
