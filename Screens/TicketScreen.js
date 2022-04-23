@@ -23,12 +23,15 @@ const ProfileScreen = ({ navigation,  }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flex: 10 }}>
-        <View style={{ flex: 9 }}>
-          
-        
+      <Text>History</Text>
+        <View style={{flex:0.3, justifyContent:"center",alignItems:"center",backgroundColor:"green"}}>
+           <Text>Afrochella</Text>
+            <View>
+              <Text>Ticket Id:</Text>
+              <Text>ajfoaifoiawoieeee8989af8898998</Text>
+            </View>
+           <Text>amount</Text>
         </View>
-      </View>
     </SafeAreaView>
   );
 };
@@ -38,5 +41,8 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"yellow",
+    justifyContent:"center",
+    alignItems:"center"
   },
 });

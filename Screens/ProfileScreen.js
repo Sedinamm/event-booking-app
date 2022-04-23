@@ -89,13 +89,13 @@ const ProfileScreen = ({ navigation }) => {
         </TouchableRipple> */}
         <TouchableRipple onPress={() => {}}>
           <View style={styles.menuItem}>
-            <Icon name="credit-card" color="#FF6347" size={25} />
+            <Icon name="credit-card" color="#fff" size={25} />
             <Text style={styles.menuItemText}>Payment</Text>
           </View>
         </TouchableRipple>
         <TouchableRipple onPress={() => {}}>
           <View style={styles.menuItem}>
-            <Icon name="share-outline" color="#FF6347" size={25} />
+            <Icon name="share-outline" color="#fff" size={25} />
             <Text style={styles.menuItemText}>Tell Your Friends</Text>
           </View>
         </TouchableRipple>
@@ -116,7 +116,7 @@ const ProfileScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate("EditProfileScreen")}
             style={{
-              backgroundColor: "red",
+              backgroundColor: "white",
               borderRadius: 30,
               height: 55,
               width: 150,
@@ -125,7 +125,7 @@ const ProfileScreen = ({ navigation }) => {
               top: 30,
             }}
           >
-            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
+            <Text style={{ fontWeight: "bold", fontSize: 15, color: "black" }}>
               Edit Profile
             </Text>
           </TouchableOpacity>

@@ -9,6 +9,7 @@ import {
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { PayWithFlutterwave } from "flutterwave-react-native";
+import EventTicket from "../EventTicket";
 
 const EventDetail = ({ route, navigation }) => {
   const {
@@ -41,6 +42,7 @@ const EventDetail = ({ route, navigation }) => {
   };
 
   const handleOnRedirect = (data) => {
+    navigation.navigate('ticket')
     console.log(data);
   };
 

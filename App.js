@@ -14,6 +14,7 @@ import TicketScreen from "./Screens/TicketScreen";
 import EditProfileScreen from "./Screens/EditProfileScreen";
 import EventDetail from "./Screens/components/EventDetail";
 import Main from "./Screens/Main";
+import EventTicket from "./Screens/EventTicket";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ export default function App() {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Event" component={EventDetail} />
+        <Stack.Screen name="ticket" component={EventTicket} />
         <Stack.Screen name="Main" component={Main} />
         {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
         {/* <Stack.Screen name="ProfileScreen" component={ProfileScreen} /> */}
