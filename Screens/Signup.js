@@ -30,6 +30,7 @@ export default function Signup({ navigation }) {
               fontWeight: "bold",
               fontSize: 35,
               color:"white",
+              top:10,
             }}
           >
             Sign Up
@@ -37,7 +38,7 @@ export default function Signup({ navigation }) {
 
           {/* Email */}
           
-          <View style={{ width: "100%", marginVertical: 8 }}>
+          <View style={{ width: "100%", marginVertical: 8, top:40 }}>
           <Text style={{ fontWeight: "bold", fontSize: 15, color:"white", }}>
             Email
           </Text>
@@ -46,7 +47,7 @@ export default function Signup({ navigation }) {
 
           {/* Password */}
           
-          <View style={{ width: "100%", marginVertical: 8 }}>
+          <View style={{ width: "100%", marginVertical: 8, top:40 }}>
           <Text style={{  fontWeight: "bold", fontSize: 15, color:"white", }}>
             Password
           </Text>
