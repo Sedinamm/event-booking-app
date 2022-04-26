@@ -1,11 +1,24 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput,Alert } from "react-native";
 import React, {useState} from "react";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { signUp } from "../actions/authActions";
+import userAuth from "../firebase/userAuth";
+
 
 export default function Signup({ navigation }) {
+
+  const {signIn} = userAuth()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+
+  const handleSubmit = ()=>{
+    if(!email || !password){
+      Alert.alert('please fill out the inputs')
+    }else{
+      signIn(email,password)
+      navigation.navigate("Main")
+    }
+  }
 
   return (
     <View style={{ flex: 10, backgroundColor: "white" }}>
@@ -61,11 +74,11 @@ export default function Signup({ navigation }) {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity onPress={async ()=> {
+            <TouchableOpacity onPress={
               // const res = await signUp(email, password);
               // console.log(res);
-              navigation.navigate("Main")
-            }}
+              handleSubmit
+            }
               style={{
                 backgroundColor: "white",
                 borderRadius: 30,
@@ -80,7 +93,7 @@ export default function Signup({ navigation }) {
           </View>
 
           {/* Text */}
-          <Text style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}>
+          {/* <Text style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}>
             Already have an account?
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
@@ -95,7 +108,7 @@ export default function Signup({ navigation }) {
             >
               Sign up
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>

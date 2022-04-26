@@ -16,7 +16,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
-    "firebase": "7.14.2",
+    "firebase": "^8.2.3",
     "flutterwave-react-native": "^1.0.2",
     "i": "^0.3.7",
     "react": "17.0.1",

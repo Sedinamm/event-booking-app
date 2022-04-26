@@ -1,15 +1,32 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput,Alert } from "react-native";
 import React, {useState} from "react";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { signUp } from "../actions/authActions";
+import userAuth from "../firebase/userAuth";
+
 
 export default function Signup({ navigation }) {
+
+  const {signUp} = userAuth()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
+
+  const handleSubmit = ()=>{
+    if(!email || ! password){
+      alert.alert("a field is missing")
+    }else{
+      signUp(email,password)
+    }
+  }
+  const handleSubmitNext = ()=>{
+   navigation.navigate("Login")
+  }
+
   return (
-    <View style={{ flex: 10, backgroundColor: "white" }}>
-      <View style={{ flex: 3, backgroundColor: "white" }}>
+    <View style={{ flex: 10, backgroundColor: "white", }}>
+         <View style={{ flex: 3, backgroundColor: "white" }}>
         {/* <Image
           style={{ bottom: -1, right: 20, width: 410, height: 350 }}
           source={require("../assets/Images/55.jpg")}
@@ -61,11 +78,11 @@ export default function Signup({ navigation }) {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity onPress={async ()=> {
+            <TouchableOpacity onPress={
               // const res = await signUp(email, password);
               // console.log(res);
-              navigation.navigate("Main")
-            }}
+              handleSubmit
+            }
               style={{
                 backgroundColor: "white",
                 borderRadius: 30,
@@ -83,13 +100,13 @@ export default function Signup({ navigation }) {
           <Text style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}>
             Already have an account?
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <TouchableOpacity onPress={handleSubmitNext}>
             <Text
               style={{
-                top: 83,
+                top: 20,
                 fontWeight: "bold",
                 alignSelf: "center",
-                left: 87,
+                left: 100,
                 color:"white",
               }}
             >

@@ -16,10 +16,19 @@ import {
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import userAuth from "../firebase/userAuth";
 
 // import { borderRightColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
 const ProfileScreen = ({ navigation }) => {
+  
+
+  const {signOut} = userAuth()
+
+  const HandleSignout = ()=>{
+    signOut()
+    navigation.navigate("Intro1")
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.userInfoSection}>
@@ -127,6 +136,23 @@ const ProfileScreen = ({ navigation }) => {
           >
             <Text style={{ fontWeight: "bold", fontSize: 15, color: "black" }}>
               Edit Profile
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={HandleSignout}
+            style={{
+              backgroundColor: "white",
+              borderRadius: 30,
+              height: 55,
+              width: 150,
+              justifyContent: "center",
+              alignItems: "center",
+              top: 30,
+              marginTop:30
+            }}
+          >
+            <Text style={{ fontWeight: "bold", fontSize: 15, color: "black" }}>
+              SignOut
             </Text>
           </TouchableOpacity>
         </View>
