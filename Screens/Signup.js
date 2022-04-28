@@ -58,9 +58,9 @@ export default function Signup({ navigation }) {
           {/* Email */}
 
           <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
-            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-              Email
-            </Text>
+            <Text
+              style={{ fontWeight: "bold", fontSize: 15, color: "white" }}
+            ></Text>
             <TextInput
               onChangeText={(text) => setEmail(text)}
               value={email}
@@ -77,9 +77,14 @@ export default function Signup({ navigation }) {
           {/* Password */}
 
           <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
-            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-              Password
-            </Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 15,
+                color: "white",
+                marginBottom: 20,
+              }}
+            ></Text>
             <TextInput
               onChangeText={(text) => setPassword(text)}
               value={password}
@@ -125,23 +130,13 @@ export default function Signup({ navigation }) {
 
           {/* Text */}
           <Text
-            style={{ top: 100, alignSelf: "center", right: 20, color: "white" }}
+            style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}	
           >
-            Already have an account?
+            Already have an account?{" "}
+            <TouchableOpacity style={{marginTop: -2, marginLeft: -24}} onPress={() => navigation.navigate("Login")}>
+              <Text style={{ color: "#fff", fontWeight: "bold" }}>Login</Text>
+            </TouchableOpacity>
           </Text>
-          <TouchableOpacity onPress={handleGoToLogin}>
-            <Text
-              style={{
-                top: 20,
-                fontWeight: "bold",
-                alignSelf: "center",
-                left: 100,
-                color: "white",
-              }}
-            >
-              Login
-            </Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>

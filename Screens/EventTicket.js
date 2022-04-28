@@ -15,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const EventTicket = ({ route }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const {navigate, goBack} = useNavigation()
+  const { navigate, goBack } = useNavigation();
   const { id, Name, rating, image, day, month, about, price } = route.params;
   return (
     <View style={styles.container}>
@@ -28,7 +28,7 @@ const EventTicket = ({ route }) => {
           }}
         >
           <View style={{ flex: 1 }}>
-            <TouchableOpacity onPress={() => navigate('Main')}>
+            <TouchableOpacity onPress={() => navigate("Main")}>
               <MaterialIcons name="arrow-back-ios" color="#fff" size={20} />
             </TouchableOpacity>
           </View>
@@ -38,7 +38,7 @@ const EventTicket = ({ route }) => {
           <View style={{ flex: 1, alignItems: "flex-end" }}></View>
         </View>
       </View>
-      <View style={{ flex: 1, alignItems: "center" }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <View
           style={{
             paddingHorizontal: 16,
@@ -78,6 +78,7 @@ const EventTicket = ({ route }) => {
                       color: "#fff",
                       fontWeight: "bold",
                       letterSpacing: 3,
+                      textAlign: "center",
                     }}
                   >
                     {Name}
@@ -91,7 +92,7 @@ const EventTicket = ({ route }) => {
                       textAlign: "center",
                     }}
                   >
-                    Ticket
+                    Ticket: {`${Name}-${Date.now()}`}
                   </Text>
                   <Text
                     style={{
@@ -102,7 +103,7 @@ const EventTicket = ({ route }) => {
                       textAlign: "center",
                     }}
                   >
-                    {day + "" + month}
+                    {day + " " + month}
                   </Text>
                 </View>
               </View>

@@ -194,7 +194,7 @@ export default function HomeScreen({ navigation }) {
             color="#383838"
             styles={{
               textInput: {
-                backgroundColor: "#292929",
+                backgroundColor: "#fff",
                 borderRadius: 14,
                 bottom: 50,
                 left: 15,

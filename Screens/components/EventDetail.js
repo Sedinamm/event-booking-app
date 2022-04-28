@@ -5,12 +5,13 @@ import {
   ScrollView,
   ImageBackground,
   SafeAreaView,
+  TouchableOpacity
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { PayWithFlutterwave } from "flutterwave-react-native";
 import EventTicket from "../EventTicket";
-import axios from "axios";
+import app, { auth, fireDB, } from "../../firebase/config";
+// import axios from "axios";
 
 const EventDetail = ({ route, navigation }) => {
   const [redirectData, setRedirectData] = useState(null);
@@ -49,52 +50,44 @@ const EventDetail = ({ route, navigation }) => {
   const handleOnRedirect = (data) => {
     setRedirectData(data);
     if (data.status === "successful") {
-      axios({
-        method: "get",
-        url: `https://api.flutterwave.com/v3/transactions/${data.transaction_id}/verify`,
-        headers: {
-          Authorization: "FLWPUBK_TEST-f4d768296673b2f8657ff86ffe6e77f4-X",
-        },
-      })
-        .then((res) => {
-          let data = res.data;
-          if (
-            data ===
-            "upstream connect error or disconnect/reset before headers. reset reason: connection failure"
-          ) {
-            setVerified(false);
-          }
-          if (data.status === "success") {
-            setVerifyData(data);
-            // dispatch(addTransactionOffline(data));
-            setVerified(true);
-          } else {
-            setVerified(false);
-          }
-        })
-        .catch((err) => {
-          setTimeout(() => {
-            setRetryVerify(true);
-          }, 3000);
+      let ticketData = {
+        id,
+        Name,
+        rating,
+        image,
+        day,
+        month,
+        about,
+        price,
+      };
+      const userId = auth.currentUser.uid;
+
+      //push data to firebase
+      fireDB
+        .collection("users")
+        .doc(userId)
+        .update({
+          tickets: app.firestore.FieldValue.arrayUnion(ticketData),
         });
+
+      navigation.navigate("ticket", ticketData);
     }
   };
 
+  // useEffect(() => {
+  //   if (retryVerify) {
+  //     handleOnRedirect(redirectData);
+  //   }
+  // }, [retryVerify]);
 
-  useEffect(() => {
-    if (retryVerify) {
-      handleOnRedirect(redirectData);
-    }
-  }, [retryVerify]);
-
-  useEffect(() => {
-    if (verified) {
-      let data = {
-        id, Name, rating, image, day, month, about, price
-      }
-      navigation.navigate("ticket", data)
-    }
-  },[verified])
+  // useEffect(() => {
+  //   if (verified) {
+  //     let data = {
+  //       id, Name, rating, image, day, month, about, price
+  //     }
+  //     navigation.navigate("ticket", data)
+  //   }
+  // },[verified])
 
   const Image = { uri: `${image}` };
   return (

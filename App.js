@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, LogBox } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { useEffect, useState } from "react";
@@ -15,6 +15,10 @@ import EditProfileScreen from "./Screens/EditProfileScreen";
 import EventDetail from "./Screens/components/EventDetail";
 import Main from "./Screens/Main";
 import EventTicket from "./Screens/EventTicket";
+import LoadingScreen from "./Screens/LoadingScreen";
+import ViewTicketScreen from "./Screens/ViewTicketScreen";
+
+LogBox.ignoreAllLogs();
 
 const Stack = createStackNavigator();
 
@@ -22,6 +26,7 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const auth = firebase.auth();
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && user.uid) {
@@ -39,7 +44,11 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-      {!currentUser ? (
+      {loading ? (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="loading" component={LoadingScreen} />
+        </Stack.Navigator>
+      ) : !currentUser && !loading ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Intro1" component={Intro1} />
           <Stack.Screen name="Intro2" component={Intro2} />
@@ -51,6 +60,7 @@ export default function App() {
           <Stack.Screen name="Main" component={Main} />
           <Stack.Screen name="Event" component={EventDetail} />
           <Stack.Screen name="ticket" component={EventTicket} />
+          <Stack.Screen name="viewTicket" component={ViewTicketScreen} />
           <Stack.Screen
             name="EditProfileScreen"
             component={EditProfileScreen}

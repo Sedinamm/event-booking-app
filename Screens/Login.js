@@ -56,7 +56,6 @@ export default function Signup({ navigation }) {
 
           <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
             <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-              Email
             </Text>
             <TextInput
               onChangeText={(text) => setEmail(text)}
@@ -75,7 +74,6 @@ export default function Signup({ navigation }) {
 
           <View style={{ width: "100%", marginVertical: 8, top: 40 }}>
             <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-              Password
             </Text>
             <TextInput
               onChangeText={(text) => setPassword(text)}
@@ -117,22 +115,14 @@ export default function Signup({ navigation }) {
           </View>
 
           {/* Text */}
-          <Text style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}>
-            Already have an account?
+          <Text
+            style={{ top: 100, alignSelf: "center", right: 20, color:"white", }}	
+          >
+            Already have an account?{" "}
+            <TouchableOpacity style={{marginTop: -2, marginLeft: -24}} onPress={() => navigation.navigate("Signup")}>
+              <Text style={{ color: "#fff", fontWeight: "bold" }}>Signup</Text>
+            </TouchableOpacity>
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-            <Text
-              style={{
-                top: 83,
-                fontWeight: "bold",
-                alignSelf: "center",
-                left: 87,
-                color:"white",
-              }}
-            >
-              Sign up
-            </Text>
-          </TouchableOpacity>
         </View>
       </View>
     </View>
