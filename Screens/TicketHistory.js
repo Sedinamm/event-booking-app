@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 export default function TicketHistory(props) {
 
 const {Event,Amount} = props.item
   return (
-    <View style={styles.container}> 
+    <TouchableOpacity onPress={() => {} }>
+      <View style={styles.container}> 
       <Text  style={styles.event}>{Event}</Text>
       <Text style={styles.price}>{Amount}</Text>
     </View>
+    </TouchableOpacity>
   )
 }
 

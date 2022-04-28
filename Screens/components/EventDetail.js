@@ -6,12 +6,17 @@ import {
   ImageBackground,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { PayWithFlutterwave } from "flutterwave-react-native";
 import EventTicket from "../EventTicket";
+import axios from "axios";
 
 const EventDetail = ({ route, navigation }) => {
+  const [redirectData, setRedirectData] = useState(null);
+  const [verifyData, setVerifyData] = useState(null);
+  const [verified, setVerified] = useState(false);
+  const [retryVerify, setRetryVerify] = useState(false);
   const {
     item: { id, Name, rating, image, day, month, about, price },
   } = route.params;
@@ -42,9 +47,54 @@ const EventDetail = ({ route, navigation }) => {
   };
 
   const handleOnRedirect = (data) => {
-    navigation.navigate('ticket')
-    console.log(data);
+    setRedirectData(data);
+    if (data.status === "successful") {
+      axios({
+        method: "get",
+        url: `https://api.flutterwave.com/v3/transactions/${data.transaction_id}/verify`,
+        headers: {
+          Authorization: "FLWPUBK_TEST-f4d768296673b2f8657ff86ffe6e77f4-X",
+        },
+      })
+        .then((res) => {
+          let data = res.data;
+          if (
+            data ===
+            "upstream connect error or disconnect/reset before headers. reset reason: connection failure"
+          ) {
+            setVerified(false);
+          }
+          if (data.status === "success") {
+            setVerifyData(data);
+            // dispatch(addTransactionOffline(data));
+            setVerified(true);
+          } else {
+            setVerified(false);
+          }
+        })
+        .catch((err) => {
+          setTimeout(() => {
+            setRetryVerify(true);
+          }, 3000);
+        });
+    }
   };
+
+
+  useEffect(() => {
+    if (retryVerify) {
+      handleOnRedirect(redirectData);
+    }
+  }, [retryVerify]);
+
+  useEffect(() => {
+    if (verified) {
+      let data = {
+        id, Name, rating, image, day, month, about, price
+      }
+      navigation.navigate("ticket", data)
+    }
+  },[verified])
 
   const Image = { uri: `${image}` };
   return (
@@ -70,8 +120,8 @@ const EventDetail = ({ route, navigation }) => {
         </ImageBackground>
         <View style={{ flex: 1, justifyContent: "space-around", padding: 10 }}>
           {/* Date/ Calender/ Day */}
-          <View style={{ top: 10, }}>
-            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold", }}>
+          <View style={{ top: 10 }}>
+            <Text style={{ color: "#fff", fontSize: 20, fontWeight: "bold" }}>
               {day} {month}, 2022 - 3 {month} 2022
             </Text>
             <Text
