@@ -5,8 +5,9 @@ import {
   FlatList,
   SafeAreaView,
   Image,
+  TextInput,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Event from "./components/Event";
@@ -153,6 +154,20 @@ export default function HomeScreen({ navigation }) {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     },
   ];
+
+const [search, setSearch] = useState('')
+  const [filterData, setFilterData] = useState(data)
+
+  const searchFilterFunc = (text) => {
+    if (text) {
+      const newData = data.filter((item) => {
+        const itemData = item.Name ? `${item.Name.toUpperCase()}` : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      })
+    }
+  }
+
   return (
     <View style={{ flex: 10, backgroundColor: "black" }}>
       {/* Header Section */}
@@ -190,6 +205,8 @@ export default function HomeScreen({ navigation }) {
       <View style={{ flex: 0.5, backgroundColor: "black" }}>
         <View style={{ marginTop: 55, width: 345 }}>
           <GooglePlacesAutocomplete
+          value={search}
+          onChangeText={(value) => searchFilterFunc(value)}
             placeholder="Search"
             color="#383838"
             styles={{
